@@ -1,0 +1,292 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --blue: #3d9bea;
+  --blue-light: #65b5f5;
+  --navy: #001b3a;
+  --white: #fff;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: "Inter", Arial, sans-serif;
+  background: var(--blue);
+}
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  overflow: hidden;
+  color: var(--white);
+  background:
+    radial-gradient(ellipse at 72% 46%, rgba(105, 190, 255, .36), transparent 48%),
+    linear-gradient(116deg, #55adf2 0%, #3697e8 52%, #4eacf2 100%);
+}
+
+.diagonal {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  transform: skewX(-43deg);
+  background: rgba(139, 207, 255, .17);
+}
+
+.diagonal-top {
+  width: 150px;
+  height: 360px;
+  left: -95px;
+  top: -120px;
+  box-shadow: 90px 0 0 rgba(139, 207, 255, .12);
+}
+
+.diagonal-bottom {
+  width: 150px;
+  height: 520px;
+  right: 110px;
+  bottom: -335px;
+  box-shadow: 90px 0 0 rgba(139, 207, 255, .14),
+              180px 0 0 rgba(139, 207, 255, .10);
+}
+
+.topbar {
+  position: absolute;
+  top: 5.1%;
+  right: 3.5%;
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.brand-mini {
+  display: none;
+  color: white;
+  font-family: "Barlow Condensed", Impact, sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(28px, 4.6vw, 78px);
+}
+
+nav a {
+  color: white;
+  font-size: clamp(14px, 1.55vw, 28px);
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity .2s ease;
+}
+
+nav a:hover { opacity: .7; }
+
+.social {
+  position: absolute;
+  top: 30.5%;
+  left: 3%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(35px, 5.2vw, 88px);
+}
+
+.social a {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  color: white;
+  transition: transform .2s ease;
+}
+
+.social a:hover { transform: translateX(5px); }
+
+.social svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.social svg .filled { fill: currentColor; stroke: none; }
+.social svg .dot { fill: currentColor; stroke: none; }
+
+.intro {
+  position: absolute;
+  top: 23.2%;
+  left: 19.2%;
+  width: 51%;
+}
+
+.eyebrow,
+.intro h1,
+.role {
+  font-family: "Barlow Condensed", Impact, "Arial Narrow", sans-serif;
+  font-weight: 900;
+  line-height: .88;
+}
+
+.eyebrow {
+  margin-left: 0;
+  font-size: clamp(70px, 10.3vw, 172px);
+  letter-spacing: -3px;
+  color: white;
+}
+
+.intro h1 {
+  margin-top: 18px;
+  color: var(--navy);
+  font-size: clamp(76px, 13.8vw, 230px);
+  letter-spacing: -5px;
+  white-space: nowrap;
+}
+
+.role {
+  margin-top: 16px;
+  margin-left: 52%;
+  font-size: clamp(23px, 3.25vw, 54px);
+  line-height: 1;
+  white-space: nowrap;
+  color: white;
+}
+
+.church {
+  position: absolute;
+  top: 20.2%;
+  right: 3.6%;
+  width: 24%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.church img {
+  display: block;
+  width: 100%;
+  max-width: 390px;
+  height: auto;
+  object-fit: contain;
+}
+
+.church p {
+  margin-top: -1.5%;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(22px, 3vw, 49px);
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+}
+
+.qualities {
+  position: absolute;
+  left: 18.8%;
+  bottom: 5.2%;
+  display: flex;
+  align-items: center;
+  gap: clamp(22px, 3vw, 50px);
+  font-size: clamp(14px, 1.65vw, 28px);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.qualities i {
+  display: block;
+  width: 2px;
+  height: clamp(48px, 6.1vw, 105px);
+  background: rgba(255,255,255,.95);
+}
+
+footer {
+  position: absolute;
+  right: 3%;
+  bottom: 2%;
+  opacity: .0;
+  font-size: 11px;
+}
+
+@media (min-width: 1500px) {
+  .intro { top: 24.5%; }
+}
+
+@media (max-width: 900px) {
+  .topbar { top: 4%; right: 5%; }
+  nav { gap: 24px; }
+  .intro { left: 14%; top: 27%; width: 58%; }
+  .church { right: 3%; top: 25%; width: 25%; }
+  .social { left: 3%; }
+  .qualities { left: 14%; bottom: 8%; gap: 20px; }
+}
+
+@media (max-width: 640px) {
+  .hero { min-height: 760px; }
+  .topbar {
+    position: relative;
+    top: auto;
+    right: auto;
+    padding: 24px 22px;
+    justify-content: space-between;
+  }
+  .brand-mini { display: block; }
+  nav { gap: 14px; }
+  nav a { font-size: 11px; }
+  .social {
+    top: auto;
+    bottom: 28px;
+    left: 22px;
+    flex-direction: row;
+    gap: 22px;
+  }
+  .social a { width: 22px; height: 22px; }
+  .intro {
+    top: 24%;
+    left: 8%;
+    width: 88%;
+  }
+  .eyebrow { font-size: clamp(72px, 19vw, 120px); }
+  .intro h1 {
+    margin-top: 12px;
+    font-size: clamp(72px, 19vw, 124px);
+    letter-spacing: -3px;
+  }
+  .role {
+    margin-top: 12px;
+    margin-left: 30%;
+    font-size: clamp(22px, 6vw, 36px);
+  }
+  .church {
+    top: 54%;
+    right: 8%;
+    width: 45%;
+  }
+  .church p { font-size: clamp(21px, 5.7vw, 32px); }
+  .qualities {
+    left: 8%;
+    right: 8%;
+    bottom: 13%;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 11px;
+    white-space: normal;
+    text-align: center;
+  }
+  .qualities i { height: 42px; flex: 0 0 1px; }
+}
+
+@media (max-width: 390px) {
+  nav { gap: 9px; }
+  nav a { font-size: 10px; }
+  .church { width: 48%; top: 56%; }
+  .qualities { font-size: 9px; }
+}
