@@ -281,8 +281,6 @@ footer {
     white-space: normal;
     text-align: center;
   }
-  .qualities i { height: 42px; flex: 0 0 1px; }
-}
 
 @media (max-width: 390px) {
   nav { gap: 9px; }
